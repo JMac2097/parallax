@@ -7,12 +7,6 @@ $(document).ready(function () {
     redrawDotNav();
   });
 
-  /* Scroll event handler */
-  //   $(window).bind("scroll", function (e) {
-  //     parallaxScroll();
-  //     redrawDotNav();
-  //   });
-
   /* Next/prev and primary nav btn click handlers */
   $("a.manned-flight").click(function () {
     $("html, body").animate(
@@ -76,10 +70,14 @@ $(document).ready(function () {
 
 /* Scroll the background layers */
 function parallaxScroll() {
-  var scrolled = window.scrollTop; // broken here
-  $("#parallax-bg1").css("top", 0 - scrolled * 0.25 + "px");
-  $("#parallax-bg2").css("top", 0 - scrolled * 0.5 + "px");
-  $("#parallax-bg3").css("top", 0 - scrolled * 0.75 + "px");
+  const scrolled = window.scrollY;
+  const bg1 = document.getElementById("parallax-bg1");
+  const bg2 = document.getElementById("parallax-bg2");
+  const bg3 = document.getElementById("parallax-bg3");
+
+  bg1.style.top = 0 - scrolled * 0.25 + "px";
+  bg2.style.top = 0 - scrolled * 0.5 + "px";
+  bg3.style.top = 0 - scrolled * 0.75 + "px";
 }
 
 /* Set navigation dots to an active state as the user scrolls */
